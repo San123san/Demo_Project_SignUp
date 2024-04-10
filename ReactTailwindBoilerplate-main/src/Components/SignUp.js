@@ -29,7 +29,6 @@ function Pages() {
       setError('Please check the checkbox.');
     } else {
       setError('');
-      // Inside your handleSubmit function after fetching data
       try {
         const response = await fetch('/api/users/register', {
           method: 'POST',

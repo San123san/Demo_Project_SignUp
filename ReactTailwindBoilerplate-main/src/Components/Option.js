@@ -19,7 +19,6 @@ function Option() {
 
     const handleFinish = async () => {
         try {
-            // Send selected option to backend
             await fetch('api/users/saveOption', {
                 method: 'POST',
                 headers: {
@@ -27,7 +26,6 @@ function Option() {
                 },
                 body: JSON.stringify({ selectedOption })
             });
-            // Navigate to the verify page
             navigate('/verify');
         } catch (error) {
             console.error('Error finishing:', error);

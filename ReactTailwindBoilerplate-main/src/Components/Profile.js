@@ -35,7 +35,7 @@ function Profile() {
 
     const handleDefaultImage = () => {
         setSelectedImage(dribbble);
-        setUploadedImage(null); // Clear uploaded image
+        setUploadedImage(null); 
     };
 
     const handleLocationChange = (event) => {
@@ -43,22 +43,16 @@ function Profile() {
     };
 
     const handleNextButtonClick = () => {
-        // Here you can implement the logic to upload the image and location if they are set
-        if (uploadedImage && location) {
-            // Call a function to upload the image and location
+        if ((uploadedImage || selectedImage !== select_image) && location) {
             uploadImageToServer();
             navigate('/option');
         }
-        // You can also handle navigation to the next step or perform any other action here
     };
 
     const uploadImageToServer = () => {
-        // Implement the logic to upload the image and location to the server
-        // You can use fetch or any other method to send the image data to the backend
-        // Example:
         const formData = new FormData();
         formData.append('image', uploadedImage);
-        formData.append('location', location); // Append location to FormData
+        formData.append('location', location);
         fetch('/api/users/uploadImage', {
             method: 'POST',
             body: formData
@@ -66,11 +60,9 @@ function Profile() {
             .then(response => response.json())
             .then(data => {
                 console.log('Image uploaded successfully:', data);
-                // Handle any further actions after successful image upload
             })
             .catch(error => {
                 console.error('Error uploading image:', error);
-                // Handle error
             });
     };
 
