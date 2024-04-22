@@ -10,4 +10,4 @@ This project is built with the following technologies:
 - Object Data Modeling (ODM) library: Mongoose
 - Database: MongoDB
 
-#### Note : This project is created for intenship assignment.
+#### Note : This project is created for internship assignment.
